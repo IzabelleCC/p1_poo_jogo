@@ -85,7 +85,7 @@ public class Personagem {
   
   void oQueFazer(){
     var gerador = new Random();
-    int oQueFazer = gerador.nextInt(3);
+    int oQueFazer = gerador.nextInt(4);
     switch(oQueFazer){
       case 0:
         cacar();
@@ -94,7 +94,10 @@ public class Personagem {
         comer();
         break;
       case 2:
-      dormir();
+        dormir();
+        break;
+      case 3:
+        atacar();
         break;
     }
   }
@@ -107,6 +110,21 @@ public class Personagem {
     if(energia <= 0 && personagem.energia <= 0){
       System.out.println("fim do jogo!");
       System.exit(0);
+    }
+  }
+  void atacar() {
+    var gerador = new Random();
+    int oQueFazer = gerador.nextInt(1);
+    if(energia > 0){
+    switch(oQueFazer){
+      case 0:
+        energia--;
+        System.out.printf("%s foi atacado\n", nome);
+      break;
+      case 1:
+      break;
+    }
+    morrer();
     }
   }
 }

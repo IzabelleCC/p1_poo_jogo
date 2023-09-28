@@ -1,0 +1,12 @@
+git clone https://github.com/professorbossini/20232_fatec_ipi_poo_jogo_cacador.git
+git remote add origin https://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@github.com/IzabelleCC/p1_poo_jogo.git
+git add .
+git commit -m "p1(jogo): estoque de itens"
+git add .
+git commit -m " p1(jogo): refeição condicional"
+git add . 
+git commit -m "p1(jogo): novo personagem"  
+git add . 
+git commit -m "p1(jogo): morte do personagem"
+git add .
+git commit -m "p1(jogo): batalha de personagens" 
