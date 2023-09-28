@@ -33,6 +33,7 @@ public class Personagem {
       System.out.println(nome + " cacando...");
       energia -= 2; // energia = energia - 2;
       itens++;
+      morrer();
     }
     else{
       System.out.println (nome + " sem energia para cacar...");
@@ -97,4 +98,17 @@ public class Personagem {
         break;
     }
   }
+  void morrer(){ 
+    if (energia <= 0){
+      System.out.println(nome + " morreu!");
+    }
+  }
+  void fimJogo(Personagem personagem){
+    if(energia <= 0 && personagem.energia <= 0){
+      System.out.println("fim do jogo!");
+      System.exit(0);
+    }
+  }
 }
+
+

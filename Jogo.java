@@ -6,10 +6,12 @@ public class Jogo {
     while(true){
       personagem1.oQueFazer();
       personagem1.exibirEstado();
+      personagem1.fimJogo(personagem2);
       personagem2.oQueFazer();
       personagem2.exibirEstado();
+      personagem2.fimJogo(personagem1);
       System.out.println("--------------------");
-      Thread.sleep(8000);
+     // Thread.sleep(800);
     }
   }
 }
