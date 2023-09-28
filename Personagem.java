@@ -5,6 +5,7 @@ public class Personagem {
   private int energia = 10;
   private int fome = 0;
   private int sono = 0;
+  private int itens = 4;
 
   //construtor: lista de parâmetros vazia
   // Personagem(){
@@ -28,11 +29,12 @@ public class Personagem {
   //comportamentos (métodos)
   void cacar(){
     if(energia >= 2){
-      System.out.println(nome + " caçando...");
+      System.out.println(nome + " cacando...");
       energia -= 2; // energia = energia - 2;
+      itens++;
     }
     else{
-      System.out.println (nome + " sem energia para caçar...");
+      System.out.println (nome + " sem energia para cacar...");
     }
     fome = Math.min(fome + 1, 10);
     sono = Math.min(sono + 1 ,10);
@@ -46,7 +48,7 @@ public class Personagem {
       fome--;
     }
     else{
-      System.out.println(nome + " sem fome...");
+        System.out.println(nome + " sem fome...");
     }
   }
 
@@ -64,11 +66,12 @@ public class Personagem {
 
   void exibirEstado(){
     System.out.printf(
-      "%s: e: %d, f: %d, s: %d\n",
+      "%s: e: %d, f: %d, s: %d, i: %d\n",
       nome,
       energia,
       fome,
-      sono
+      sono,
+      itens
     );
   }
  
