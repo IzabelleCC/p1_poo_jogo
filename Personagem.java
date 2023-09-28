@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Personagem {
  
   //atributos ou propriedades
@@ -52,7 +53,9 @@ public class Personagem {
       if (fome <=1){
         System.out.println(nome + " sem fome...");
       }
-      System.out.println(nome + " está sem itens...");
+      else{
+        System.out.println(nome + " está sem itens...");
+      }
     }
   }
 
@@ -78,5 +81,20 @@ public class Personagem {
       itens
     );
   }
- 
+  
+  void oQueFazer(){
+    var gerador = new Random();
+    int oQueFazer = gerador.nextInt(3);
+    switch(oQueFazer){
+      case 0:
+        cacar();
+        break;
+      case 1:
+        comer();
+        break;
+      case 2:
+      dormir();
+        break;
+    }
+  }
 }

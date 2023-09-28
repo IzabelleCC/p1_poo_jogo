@@ -1,24 +1,15 @@
-import java.util.Random;
+
 public class Jogo {
   public static void main(String[] args) throws Exception {
-    var gerador = new Random();
-    var personagem = new Personagem("John");
+    var personagem1 = new Personagem("John");
+    var personagem2 = new Personagem("George");
     while(true){
-      int oQueFazer = gerador.nextInt(3); //[0..3[
-      switch(oQueFazer){
-        case 0:
-          personagem.cacar();
-          break;
-        case 1:
-        personagem.comer();
-          break;
-        case 2:
-        personagem.dormir();
-        break;
-      }
-      personagem.exibirEstado();
+      personagem1.oQueFazer();
+      personagem1.exibirEstado();
+      personagem2.oQueFazer();
+      personagem2.exibirEstado();
       System.out.println("--------------------");
-      Thread.sleep(8000); 
+      Thread.sleep(8000);
     }
   }
 }
