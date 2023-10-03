@@ -11,7 +11,9 @@ public class Personagem {
   //construtor: lista de parÃ¢metros vazia
   // Personagem(){
 
-  // }
+  public int getEnergia(){
+    return energia;
+  }
 
   Personagem(String nome){
     this.nome = nome;
@@ -30,13 +32,13 @@ public class Personagem {
   //comportamentos (mÃ©todos)
   void cacar(){
     if(energia >= 2){
-      System.out.println(nome + " cacando...");
+      System.out.println(nome + " cacou.");
       energia -= 2; // energia = energia - 2;
       itens++;
       morrer();
     }
     else{
-      System.out.println (nome + " sem energia para cacar...");
+      System.out.println (nome + " esta sem energia para cacar.");
     }
     fome = Math.min(fome + 1, 10);
     sono = Math.min(sono + 1 ,10);
@@ -44,7 +46,7 @@ public class Personagem {
 
   void comer(){
     if (fome >= 1  && itens >=1){
-      System.out.println(nome + " comendo...");
+      System.out.println(nome + " comeu.");
       // operador ternÃ¡rio
       energia = energia + 1 > 10 ? 10 : energia + 1;
       fome--;
@@ -52,22 +54,22 @@ public class Personagem {
     }
     else{
       if (fome <=1){
-        System.out.println(nome + " sem fome...");
+        System.out.println(nome + " esta sem fome para comer.");
       }
       else{
-        System.out.println(nome + " está sem itens...");
+        System.out.println(nome + " esta sem itens para comer.");
       }
     }
   }
 
   void dormir(){
     if(sono > 0){
-      System.out.println(nome + " dormindo...");
+      System.out.println(nome + " dormiu.");
       sono -= 1;
       energia = Math.min(10, energia + 1);
     }
     else{
-      System.out.println(nome + " sem sono");
+      System.out.println(nome + " esta sem sono.");
     }
 
   }
@@ -83,48 +85,54 @@ public class Personagem {
     );
   }
   
-  void oQueFazer(){
+  void oQueFazer(Personagem personagem){
     var gerador = new Random();
     int oQueFazer = gerador.nextInt(4);
-    switch(oQueFazer){
-      case 0:
-        cacar();
-        break;
-      case 1:
-        comer();
-        break;
-      case 2:
-        dormir();
-        break;
-      case 3:
-        atacar();
-        break;
+    if(energia > 0){
+      switch(oQueFazer){
+        case 0:
+          cacar();
+          break;
+        case 1:
+          comer();
+          break;
+        case 2:
+          dormir();
+          break;
+        case 3:
+          if(personagem.energia > 0){
+            atacar();
+          }
+          else{
+            System.out.println(nome + " não tem inimigo para atacar.");
+          }
+          
+          break;
+      }
     }
   }
   void morrer(){ 
     if (energia <= 0){
-      System.out.println(nome + " morreu!");
+      System.out.println(nome + " MORREUUU !!!!!");
     }
   }
   void fimJogo(Personagem personagem){
     if(energia <= 0 && personagem.energia <= 0){
-      System.out.println("fim do jogo!");
+      System.out.println("FIM DO JOGO !!!!");
       System.exit(0);
     }
   }
   void atacar() {
     var gerador = new Random();
-    int oQueFazer = gerador.nextInt(1);
-    if(energia > 0){
-    switch(oQueFazer){
+    int quemAtaca = gerador.nextInt(1);
+      switch(quemAtaca){
       case 0:
         energia--;
-        System.out.printf("%s foi atacado\n", nome);
+        System.out.printf("%s foi atacado.\n", nome);
+        morrer();
       break;
       case 1:
       break;
-    }
-    morrer();
     }
   }
 }

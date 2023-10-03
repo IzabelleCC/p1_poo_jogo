@@ -10,3 +10,5 @@ git add .
 git commit -m "p1(jogo): morte do personagem"
 git add .
 git commit -m "p1(jogo): batalha de personagens" 
+git add .
+git commit -m "p1(jogo): correcao  batalha de personagens"
